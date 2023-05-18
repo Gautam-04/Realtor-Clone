@@ -2,8 +2,8 @@ import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 export default function Header() {
-    const location = useLocation();
-    const navigate = useNavigate();
+  const location = useLocation();
+  const navigate = useNavigate();
 
   function pathmatch(route) {
     if (route === location.pathname) {
@@ -26,7 +26,7 @@ export default function Header() {
           <ul className="flex space-x-10">
             <li
               className={`p-3 text-sm font-semibold text-gray-400 border-b-[3px] border-b-transparent cursor-pointer ${
-                pathmatch("/") && "text-black border-b-red-500"
+                pathmatch("/") && "!text-black !border-b-red-500"
               }`}
               onClick={() => navigate("/")}
             >
@@ -35,7 +35,7 @@ export default function Header() {
 
             <li
               className={`p-3 text-sm font-semibold border-b-transparent text-gray-400 border-b-[3px] cursor-pointer ${
-                pathmatch("/offers") && "text-black border-b-red-500"
+                pathmatch("/offers") && "!text-black !border-b-red-500"
               }`}
               onClick={() => navigate("/offers")}
             >
@@ -43,10 +43,10 @@ export default function Header() {
             </li>
 
             <li
-              className={`p-3 text-sm font-semibold text-gray-400 border-b-[3px] border-b-transparent cursor-pointer ${
-                pathmatch("/sign-in") && "text-black border-b-red-500"
+              className={`cursor-pointer py-3 text-sm font-semibold text-gray-400 border-b-[3px] border-b-transparent ${
+                pathmatch("/sign-in") && "!text-black !border-b-red-500"
               }`}
-              onClick={() => navigate("/signin")}
+              onClick={() => navigate("/sign-in")}
             >
               SignIn
             </li>
