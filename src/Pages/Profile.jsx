@@ -24,7 +24,7 @@ setformData((prevState) => ({
 
 async function onSubmit(){
   try {
-    if(auth.currentUser.displayName != name){
+    if(auth.currentUser.displayName !== name){
       //update the display name in firebase auth
       await updateProfile(auth.currentUser,{
         displayName: name,
