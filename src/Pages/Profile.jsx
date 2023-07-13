@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import { getAuth, updateProfile} from 'firebase/auth';
+import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
 import { db } from "../firebase";
 import { doc, updateDoc } from "firebase/firestore";
+import {FcHome} from 'react-icons/fc'
 
 export default function Profile() {
   const auth = getAuth();
@@ -66,7 +68,8 @@ function onLogout(){
               onChange={onChange}
               className={`w-full px-4 py-2 text-xl text-gray-700 bg-white
        border border-gray-300 rounded transition ease-in-out mb-6 ${
-         changeDetail && "bg-red-200 focus:bg-red-200"}`}
+         changeDetail && "bg-red-200 focus:bg-red-200"
+       }`}
             />
             <input
               type="email"
@@ -97,6 +100,13 @@ function onLogout(){
               </p>
             </div>
           </form>
+          
+            <button type="submit" className='w-full bg-blue-600 text-white uppercase px-7 py-3 text-sm font-medium rounded shadow-md hover:bg-blue-700 transition duration-150 ease-in-out hover:shadow-lg active:bg-blue-800 '>
+            <Link to="/create-listing" className='flex justify-center items-center '>
+              <FcHome  className='mr-2 text-3xl bg-red-200 rounded-full p-1 border-2'/>
+              Sell or Rent your Home
+              </Link>
+            </button>
         </div>
       </section>
     </>
